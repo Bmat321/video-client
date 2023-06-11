@@ -134,7 +134,7 @@ const Video = () => {
         );
 
         const channelRes = await axios.get(
-          `/users/find/${videoRes.data.userId}`
+          `https://video-server-x7w4.onrender.com/api/users/find/${videoRes.data.userId}`
         );
         // console.log(videoRes.data);
         setChannel(channelRes.data);
