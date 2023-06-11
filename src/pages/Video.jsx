@@ -14,7 +14,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { format } from "timeago.js";
-import { dislike,fetchStart, fetchSuccess, like } from "../redux/videoSlice";
+import { dislike, fetchSuccess, like } from "../redux/videoSlice";
 import { subscriptions } from "../redux/userSlice";
 import Reccommendation from "../components/Reccommendation";
 const Container = styled.div`
@@ -128,7 +128,7 @@ const Video = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      dispatch(fetchStart());
+      // dispatch(fetchStart());
       try {
         const videoRes = await axios.get(
           `https://video-server-x7w4.onrender.com/api/videos/find/${path}`
