@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 
-import BmatTube from "../../public/img/logo.png";
+import BmatTube from "../img/logo.png";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "react-router-dom";
 import {
