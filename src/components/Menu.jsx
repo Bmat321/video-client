@@ -95,14 +95,12 @@ const Menu = ({ setDarkMode, darkMode }) => {
   return (
     <Container>
       <Wrapper>
-        {currentUser && (
-          <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-            <Logo>
-              <Img src={BmatTube} />
-              BmatTube
-            </Logo>
-          </Link>
-        )}
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <Logo>
+            <Img src={BmatTube} />
+            BmatTube
+          </Logo>
+        </Link>
         <Item>
           <HomeIcon />
           Home

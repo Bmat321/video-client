@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { loginFailure, loginStart, loginSuccess } from "../redux/userSlice";
 import { auth, provider } from "../firebase";
 import { signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -72,16 +73,21 @@ const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClick = async (e) => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post("https://video-server-x7w4.onrender.com/api/auths/signin", { name, password });
+      const res = await axios.post(
+        "https://video-server-x7w4.onrender.com/api/auths/signin",
+        { name, password }
+      );
       dispatch(loginSuccess(res.data));
     } catch (err) {
       dispatch(loginFailure());
     }
+    navigate("/");
   };
 
   const signinWithGoogle = async () => {
@@ -102,6 +108,7 @@ const Signin = () => {
       .catch((error) => {
         dispatch(loginFailure());
       });
+    navigate("/");
   };
 
   return (

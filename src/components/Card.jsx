@@ -60,7 +60,9 @@ const Card = ({ type, video }) => {
   useEffect(() => {
     const fetchChannel = async () => {
       try {
-        const res = await axios.get(`https://video-server-x7w4.onrender.com/api/users/find/${video.userId}`);
+        const res = await axios.get(
+          `https://video-server-x7w4.onrender.com/api/users/find/${video.userId}`
+        );
         setChannel(res.data);
       } catch (err) {
         console.log(err);
@@ -69,7 +71,10 @@ const Card = ({ type, video }) => {
     fetchChannel();
   }, [video.userId]);
   return (
-    <Link to={`/video/${video._id}`} style={{ textDecoration: "none" }}>
+    <Link
+      to={`https://video-server-x7w4.onrender.com/api/video/${video._id}`}
+      style={{ textDecoration: "none" }}
+    >
       <Container type={type}>
         <Image type={type} src={video.imgUrl} />
         <Details type={type}>

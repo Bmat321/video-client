@@ -128,6 +128,7 @@ const Video = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      dispatch(fetchStart());
       try {
         const videoRes = await axios.get(
           `https://video-server-x7w4.onrender.com/api/videos/find/${path}`
@@ -147,19 +148,27 @@ const Video = () => {
   }, [path, dispatch]);
 
   const handleLikes = async () => {
-    await axios.put(`https://video-server-x7w4.onrender.com/api/users/like/${currentVideo._id}`);
+    await axios.put(
+      `https://video-server-x7w4.onrender.com/api/users/like/${currentVideo._id}`
+    );
     dispatch(like(currentUser._id));
   };
 
   const handleDislikes = async () => {
-    await axios.put(`https://video-server-x7w4.onrender.com/api/users/dislike/${currentVideo._id}`);
+    await axios.put(
+      `https://video-server-x7w4.onrender.com/api/users/dislike/${currentVideo._id}`
+    );
     dispatch(dislike(currentUser._id));
   };
 
   const handleSubsriptions = async () => {
     currentUser.subscriberUsers.includes(channel._id)
-      ? await axios.put(`https://video-server-x7w4.onrender.com/api/users/unsub/${channel._id}`)
-      : await axios.put(`https://video-server-x7w4.onrender.com/api/users/sub/${channel._id}`);
+      ? await axios.put(
+          `https://video-server-x7w4.onrender.com/api/users/unsub/${channel._id}`
+        )
+      : await axios.put(
+          `https://video-server-x7w4.onrender.com/api/users/sub/${channel._id}`
+        );
     dispatch(subscriptions(channel._id));
   };
 
