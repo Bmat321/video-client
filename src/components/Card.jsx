@@ -72,7 +72,7 @@ const Card = ({ type, video }) => {
   }, [video.userId]);
   return (
     <Link
-      to={`/video/${video._id}`}
+      to={`/api/video/${video._id}`}
       style={{ textDecoration: "none" }}
     >
       <Container type={type}>
