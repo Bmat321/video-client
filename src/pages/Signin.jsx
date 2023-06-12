@@ -84,10 +84,11 @@ const Signin = () => {
         { name, password }
       );
       dispatch(loginSuccess(res.data));
+      res.data === 200 && navigate("/");
     } catch (err) {
       dispatch(loginFailure());
     }
-    navigate("/");
+   
   };
 
   const signinWithGoogle = async () => {
@@ -103,12 +104,13 @@ const Signin = () => {
           })
           .then((res) => {
             dispatch(loginSuccess(res.data));
+            res.data === 200 && navigate("/");
           });
       })
       .catch((error) => {
         dispatch(loginFailure());
       });
-    res.status === 200 && navigate("/");
+    
   };
 
   return (
