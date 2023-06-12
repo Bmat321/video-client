@@ -72,7 +72,7 @@ const Card = ({ type, video }) => {
   }, [video.userId]);
   return (
     <Link
-      to={`/api/video/${video._id}`}
+      to={`https://video-server-x7w4.onrender.com/video/${video._id}`}
       style={{ textDecoration: "none" }}
     >
       <Container type={type}>
