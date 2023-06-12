@@ -34,7 +34,7 @@ const App = () => {
             <Navbar />
             <Wrapper>
               <Routes>
-                <Route path="https://video-server-x7w4.onrender.com/">
+                <Route path="/">
                   <Route index element={<Home type="random" />} />
                   <Route path="trends" element={<Home type="trend" />} />
                   <Route path="subscriptions" element={<Home type="sub" />} />
