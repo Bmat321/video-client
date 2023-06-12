@@ -108,7 +108,7 @@ const Signin = () => {
       .catch((error) => {
         dispatch(loginFailure());
       });
-    navigate("/");
+    res.status === 200 && navigate("/");
   };
 
   return (
